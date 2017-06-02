@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Student Database</string>
+    <string name="marks">Marks</string>
+    <string name="name">Name</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="thank_you">Thank you for using this program :)</string>
+    <string name="exit">Exit</string>
+    <string name="add">Add</string>
+    <string name="roll_no">Roll No.</string>
 </resources>

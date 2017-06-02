@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Insert_Activity"
+            android:parentActivityName=".MainActivity">
+        <intent-filter>
+            <action android:name="deva.studentdatabase.Insert_Activity" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".Delete_Activity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="deva.studentdatabase.Delete_Activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

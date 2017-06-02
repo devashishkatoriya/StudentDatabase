@@ -1,18 +1,17 @@
 package deva.studentdatabase;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseHelper databaseHelper;
-    private EditText editName,editRoll,editMarks;
+    public static DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         databaseHelper = new DatabaseHelper(this);
-
-        editMarks = (EditText) findViewById(R.id.editText_marks);
-        editName = (EditText) findViewById(R.id.editText_name);
-        editRoll = (EditText) findViewById(R.id.editText_roll);
     }
 
     @Override
@@ -31,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         Button exit = (Button) findViewById(R.id.button);
-        Button add = (Button) findViewById(R.id.button2);
-        Button btnDelete = (Button) findViewById(R.id.button3);
+        Button insert_activity = (Button) findViewById(R.id.btn_Insert_Activity);
+        Button delete_activity = (Button) findViewById(R.id.btn_Delete_Activity);
 
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,24 +55,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
+        insert_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean result = databaseHelper.insert(Integer.parseInt(editRoll.getText().toString()),
-                        editName.getText().toString(),
-                        Integer.parseInt(editMarks.getText().toString()));
-                if(result==true)
-                    Toast.makeText(MainActivity.this, "Entry Successfully added!", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(MainActivity.this, "Oops! Entry was not added.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent("deva.studentdatabase.Insert_Activity");
+                startActivity(i);
             }
         });
 
-        btnDelete.setOnClickListener(new View.OnClickListener() {
+        delete_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int rowsDeleted = databaseHelper.delete(editName.getText().toString());
-                Toast.makeText(MainActivity.this, rowsDeleted+" rows deleted.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent("deva.studentdatabase.Delete_Activity");
+                startActivity(i);
             }
         });
     }

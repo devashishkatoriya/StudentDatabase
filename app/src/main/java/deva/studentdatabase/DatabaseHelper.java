@@ -67,4 +67,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int rowsDeleted = database.delete(TABLE_NAME,whereClause,whereArgs);
         return rowsDeleted;
     }
+
+    public int update(int oldRoll,String newName,int newMarks)
+    {
+        String whereClause = COL1 + "=?";
+        String []whereArgs = new String[]{oldRoll+""};
+        database = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(COL1,oldRoll);
+        cv.put(COL2,newName);
+        cv.put(COL3,newMarks);
+
+        int rowsUpdated = database.update(TABLE_NAME,cv,whereClause,whereArgs);
+        return rowsUpdated;
+    }
 }

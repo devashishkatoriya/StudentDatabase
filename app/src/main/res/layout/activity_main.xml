@@ -23,6 +23,14 @@
         android:layout_alignParentEnd="true" />
 
     <Button
+        android:id="@+id/btn_Update_Activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_below="@+id/btn_Delete_Activity"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:id="@+id/btn_Insert_Activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

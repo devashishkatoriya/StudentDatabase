@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Button exit = (Button) findViewById(R.id.button);
         Button insert_activity = (Button) findViewById(R.id.btn_Insert_Activity);
         Button delete_activity = (Button) findViewById(R.id.btn_Delete_Activity);
+        Button update_activity = (Button) findViewById(R.id.btn_Update_Activity);
 
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent("deva.studentdatabase.Delete_Activity");
+                startActivity(i);
+            }
+        });
+
+        update_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent("deva.studentdatabase.Update_Activity");
                 startActivity(i);
             }
         });
